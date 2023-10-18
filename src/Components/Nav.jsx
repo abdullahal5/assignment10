@@ -4,7 +4,7 @@ const Nav = () => {
     const links = (
       <>
         <li className="font-tilt">
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <NavLink to="/addProduct">Add Product</NavLink>

@@ -1,15 +1,44 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 const AddProduct = () => {
     const handleManage =(e) =>{
         e.preventDefault()
+        const name = e.target.name.value
+        const price = e.target.price.value
+        const rating = e.target.rating.value
+        const brandName = e.target.brandName.value
+        const description = e.target.description.value
+        const photo = e.target.photo.value
         const options = e.target.options.value
-        console.log(options)
+        const add = {
+          name, price, rating, brandName, description, photo, options
+        }
+        console.log(add)
+        fetch("http://localhost:4000/car", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(add),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            if(data.insertedId){
+              Swal.fire ({
+                title: 'success',
+                text: 'User added successfully',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+            }
+          });
     }
 
   const [showOptions, setShowOptions] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
-  const options = ["Toyota", "Ford", "BMW", "Mercedes-Benz", "Tesla", "Honda"];
+  const options = ["couple", "sedan", "SUV", "Station-wagon", "Sports car", "crossover"];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -55,8 +84,11 @@ const AddProduct = () => {
           </div>
           <div className="pt-10">
             <div className="relative">
+              <label className="label">
+                <span className="label-text">Types</span>
+              </label>
               <input
-              name="options"
+                name="options"
                 type="text"
                 placeholder="Click me for options"
                 value={selectedOption}
@@ -109,14 +141,23 @@ const AddProduct = () => {
             </div>
           </div>
           <div className="form-control ">
-            <label className="label">
-              Rating
-            </label>
+            <label className="label">Rating</label>
             <label className="input-group">
               <input
                 name="rating"
                 type="text"
                 placeholder="Rating"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          <div className="form-control ">
+            <label className="label">Photo URL</label>
+            <label className="input-group">
+              <input
+                name="photo"
+                type="text"
+                placeholder="Photo URL"
                 className="input input-bordered w-full"
               />
             </label>
