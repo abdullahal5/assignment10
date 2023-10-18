@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name": "Toyota",
+        "image": "https://i.ibb.co/FHTxpMr/blue-jeep-parking-public-zone-114579-4042.png"
+    },
+    {
+        "id": 2,
+        "name": "Ford",
+        "image": "https://i.ibb.co/NZZJp4W/yellow-sport-car-with-black-autotuning-road-114579-5051.png"
+    },
+    {
+        "id": 3,
+        "name": "BMW",
+        "image": "https://i.ibb.co/gtFGGt9/black-luxury-sport-sedan-car-standing-race-trace-114579-1169.png"
+    },
+    {
+        "id": 4,
+        "name": "Mercedes-Benz",
+        "image": "https://i.ibb.co/7tJM6Q4/sports-car-road-sunset-302872-197.png"
+    },
+    {
+        "id": 5,
+        "name": "Tesla",
+        "image": "https://i.ibb.co/tMPwhNG/front-view-moving-black-car-highway-1268-21986.png"
+    },
+    {
+        "id": 6,
+        "name": "Honda",
+        "image": "https://i.ibb.co/MR13J1r/car-body-parts-side-view-automotive-car-parts-such-as-window-wheel-tire-headlight-side-mirror-side-2.png"
+    }
+    
+]
