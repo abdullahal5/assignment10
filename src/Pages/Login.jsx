@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Components/AuthProvider";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 
 const Login = () => {
     const { signInUser , auth} = useContext(AuthContext);
@@ -16,6 +16,8 @@ const Login = () => {
         console.log(email, password)
         signInUser(email, password)
         .then(res => {
+          e.target.reset()
+          
             console.log(res.user)
             setSucess('User logged in successfully')
         })

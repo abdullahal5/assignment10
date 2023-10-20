@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
@@ -16,8 +17,33 @@ const Register = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
         console.log(name, email, password, photo);
+
+        setRegister("");
+        setSuccessRegister("");
+
+
+        if (password.length < 6) {
+          setRegister("Your password must be 6 character or longer");
+          return;
+        } else if (!/[A_Z]/.test(password)) {
+          setRegister("You have to give atleast one captial letter");
+          return;
+        } else if (!/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password)) {
+          setRegister("There need atleast one special character");
+          return;
+        }
+
+
         createUser(email, password)
+
         .then(result => {
+          console.log(result.user)
+
+          e.target.reset()
+          updateProfile(result.user, {
+            displayName: name,
+            photoURL: photo
+          });
             console.log(result)
             setSuccessRegister('User registered successfully')
             
@@ -26,8 +52,7 @@ const Register = () => {
             console.log(err)
             setRegister(err.message)
         })
-        setRegister('')
-        setSuccessRegister('')
+        
        
     }
     return (
