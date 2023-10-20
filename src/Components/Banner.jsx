@@ -1,6 +1,6 @@
 const Banner = () => {
     return (
-      <div className="font-tilt flex justify-evenly bg-gray-200 items-center">
+      <div className="font-tilt flex lg:flex-row md:flex-row px-5 flex-col justify-evenly bg-gray-200 items-center">
         <div>
           <h1 className="text-6xl font-bold">
             Dive <br /> into the World <br /> of

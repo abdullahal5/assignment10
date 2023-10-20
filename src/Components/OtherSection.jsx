@@ -12,9 +12,9 @@ const OtherSection = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="flex justify-center  h-[100vh] w-[100%]"
+          className="flex lg:flex-row md:flex-row flex-col justify-center  h-[150vh] md:lg:h-[100vh] lg:h-[100vh] w-[100%]"
         >
-          <div className="flex justify-center px-10 bg-[#0b0b0b80] h-full w-full items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-center px-10 bg-[#0b0b0b80] h-[100%] w-full items-center">
             <div className=" text-lg text-white flex-1">
               we're passionate about all things cars. Our journey began with a
               shared love for automobiles and a desire to create a space where
@@ -28,7 +28,7 @@ const OtherSection = () => {
               automotive needs.
             </div>
             <div className="">
-              <img src="https://i.ibb.co/vjC6TPd/gear.png" alt="flex-1" />
+              <img className="w-52 md:w-auto lg:w-auto" src="https://i.ibb.co/vjC6TPd/gear.png" alt="flex-1" />
             </div>
           </div>
         </div>
@@ -66,7 +66,6 @@ const OtherSection = () => {
             </div>
           </div>
         </div>
-        
       </div>
     );
 };

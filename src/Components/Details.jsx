@@ -79,7 +79,7 @@ const Details = () => {
           <h1 className="text-4xl font-bold text-center">Latest car</h1>
         </div>
         <div className="flex justify-center gap-10">
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {car.map((i) => (
               <div key={i.id}>
                 <div className="card w-96 bg-base-100 shadow-xl">

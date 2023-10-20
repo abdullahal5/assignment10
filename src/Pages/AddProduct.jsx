@@ -48,7 +48,7 @@ const AddProduct = () => {
 
   return (
     <div>
-      <div>
+      <div className="px-5">
         <form onSubmit={handleManage}>
           <div className="flex">
             <div className="form-control w-full">

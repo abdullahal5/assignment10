@@ -43,7 +43,13 @@ const Register = () => {
           updateProfile(result.user, {
             displayName: name,
             photoURL: photo
-          });
+          })
+          .then( () =>{
+            console.log('updated')
+          })
+          .catch(errrr =>{
+            console.log(errrr)
+          })
             console.log(result)
             setSuccessRegister('User registered successfully')
             

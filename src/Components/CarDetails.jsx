@@ -4,7 +4,7 @@ import Star from "./Star";
 import Swal from "sweetalert2";
 import { useState } from "react";
 
-const carDetails = () => {
+const CarDetails = () => {
     // const [car, setCar] = useState([]);
     // const { id } = useParams();
     // const [api, setApi] = useState({})
@@ -46,15 +46,15 @@ const carDetails = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
-        className="bg-[url('https://i.ibb.co/9sXPcVr/vintage-car-road-motion-blur-with-speed-motion-effect-743855-40785.png')] h-[100vh]"
+        className="bg-[url('https://i.ibb.co/9sXPcVr/vintage-car-road-motion-blur-with-speed-motion-effect-743855-40785.png')] h-[150vh] md:h-[100vh] lg:h-[100vh]"
       >
-        <div className="bg-[#0b0b0b7d] h-[100%]">
+        <div className="bg-[#0b0b0b7d] h-[100%] ">
         <h1 className="text-4xl font-bold text-center py-5 text-white">Details</h1>
-          <div className="flex justify-evenly ">
+          <div className="flex flex-col md:flex-row lg:flex-row justify-evenly ">
             <div>
-              <img src={photo} alt="" />
+              <img className="mx-auto" src={photo} alt="" />
             </div>
-            <div className="space-y-6 text-white">
+            <div className="space-y-6 text-white px-5">
               <h1 className="text-xl">Brand: {brandName}</h1>
               <h1 className="text-4xl font-bold">Name: {name}</h1>
               <h2 className="text-3xl">Description: {description}</h2>
@@ -71,4 +71,4 @@ const carDetails = () => {
     );
 };
 
-export default carDetails;
+export default CarDetails;

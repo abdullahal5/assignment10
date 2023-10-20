@@ -66,7 +66,13 @@ const Nav = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">Automotive</a>
+            <div className="ml-5 flex items-center w-20">
+              <img
+                src="https://i.ibb.co/vZ8b1k5/vector-illustration-sports-car-logo-template-cool-luxurious-elegant-vector-illustration-sports-car-l.png"
+                alt=""
+              />
+              <a className="btn btn-ghost normal-case text-xl">Automotive</a>
+            </div>
           </div>
           {user ? (
             <div className="gap-3">

@@ -9,16 +9,18 @@ import Login from './Pages/Login.jsx';
 import Brand from './Components/Brand.jsx';
 import Details from './Components/Details.jsx';
 import Update from './Components/Update.jsx';
-import CarDetails from './Components/CarDetails.jsx';
 import MyCart from './Components/MyCart.jsx';
 import Register from './Components/Register.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
+import CarDetails from './Components/carDetails.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -71,7 +73,7 @@ const router = createBrowserRouter([
         path: "/carDetails/:id",
         element: (
           <PrivateRoute>
-            <CarDetails></CarDetails>
+           <CarDetails></CarDetails>
           </PrivateRoute>
         ),
         loader: ({ params }) => fetch(`http://localhost:4000/car/${params.id}`),
