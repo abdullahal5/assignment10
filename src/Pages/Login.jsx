@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Components/AuthProvider";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const Login = () => {
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser , auth} = useContext(AuthContext);
     const [errLogin, setErrLogin] = useState('')
     const [success, setSucess] = useState('')
+    const provider = new GoogleAuthProvider()
     const handleLogin = (e) =>{
-
+        
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
@@ -23,8 +25,20 @@ const Login = () => {
         })
         setErrLogin('')
         setSucess('')
-
         
+        
+        
+    }
+    
+
+    const handleGoogle =() =>{
+        signInWithPopup(auth, provider)
+        .then(result => {
+            console.log(result.user)
+        })
+        .then(err =>{
+            console.logA(err)
+        })
     }
     return (
       <div>
@@ -68,6 +82,9 @@ const Login = () => {
                 }
                 <div className="form-control mt-6">
                   <button type="submit" className="btn btn-primary">Login</button>
+                </div>
+                <div className="form-control mt-6">
+                  <button onClick={handleGoogle} type="submit" className="btn btn-primary">Google Login</button>
                 </div>
               </form>
             </div>

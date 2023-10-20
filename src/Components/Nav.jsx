@@ -68,7 +68,14 @@ const Nav = () => {
             </div>
             <a className="btn btn-ghost normal-case text-xl">Automotive</a>
           </div>
-          {user? user.email : ''}
+          {user ? (
+            <div className="gap-3">
+              {user.displayName}
+              <img className="w-14 rounded-[50%]" src={user.photoURL} alt="" />
+            </div>
+          ) : (
+            ""
+          )}
           <div className="navbar-center hidden lg:flex ">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>

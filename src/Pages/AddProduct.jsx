@@ -44,10 +44,6 @@ const AddProduct = () => {
     setSelectedOption(option);
     setShowOptions(false);
 
-    
-
-
-
   };
 
   return (

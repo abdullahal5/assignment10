@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useEffect, useState } from "react";
-import {  useLoaderData, useParams } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import Star from "./Star";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const carDetails = () => {
     // const [car, setCar] = useState([]);
@@ -14,25 +14,28 @@ const carDetails = () => {
     const {brandName, description, name, options, photo, price, rating } = loadedData
 
     const handleSubmit =() =>{
-      const data = loadedData
-      console.log(data)
+      const loadedData = {
+        brandName,
+        description,
+        name,
+        options,
+        photo,
+        price,
+        rating,
+      };
+      console.log(loadedData)
       fetch("http://localhost:4000/info", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(loadedData),
       })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          Swal.fire("Good job!", "You added the car in cart section!", "success");
           
-    })
-    .catch(err => {
-      console.log(err.message)
-      if(err.message){
-        return alert('not ok')
-      }
     })
     }
 

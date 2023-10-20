@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Star from "./Star";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const MyCart = () => { 
    const cart =  useLoaderData()
    console.log(cart)
+   const [user, setUser] = useState(cart)
    const handleDelete = (_id) =>{
       console.log(_id)
       Swal.fire({
@@ -27,6 +29,8 @@ const MyCart = () => {
             console.log(data)
             if(data.deletedCount > 0){
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remainingUsers = user.filter( i => i._id !== _id)
+              setUser(remainingUsers)
             }
           })
         }
@@ -36,7 +40,7 @@ const MyCart = () => {
       <div>
         <div className="flex justify-center ">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
-          {cart.map((item) => (
+          {user.map((item) => (
             <div key={item._id}>
               <div className="card  card-side bg-base-100 shadow-xl">
                 <figure>

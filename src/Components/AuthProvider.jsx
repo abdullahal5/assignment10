@@ -7,6 +7,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
+    
     const createUser = (email, password) =>{
         setLoading(true)
         return createUserWithEmailAndPassword(auth,email, password)
@@ -28,7 +29,14 @@ const AuthProvider = ({children}) => {
             unSubscribe()
         }
     },[])
-    const authInfo = { loading, user, createUser, signInUser, logOut };
+    const authInfo = {
+      loading,
+      user,
+      createUser,
+      signInUser,
+      logOut,
+      auth
+    };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

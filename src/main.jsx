@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:4000/info"),
+        loader:() => fetch("http://localhost:4000/info"),
       },
       {
         path: "/login",
