@@ -38,7 +38,7 @@ const MyCart = () => {
     }
     return (
       <div>
-        <div className="flex justify-center ">
+        <div className="flex justify-center px-5">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
           {user.map((item) => (
             <div key={item._id}>

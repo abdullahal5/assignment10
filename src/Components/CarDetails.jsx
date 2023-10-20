@@ -2,7 +2,6 @@
 import {  useLoaderData } from "react-router-dom";
 import Star from "./Star";
 import Swal from "sweetalert2";
-import { useState } from "react";
 
 const CarDetails = () => {
     // const [car, setCar] = useState([]);
@@ -10,7 +9,8 @@ const CarDetails = () => {
     // const [api, setApi] = useState({})
     // console.log(car);
     const loadedData = useLoaderData();
-    // console.log(loadedData)
+    
+    console.log(loadedData)
     const {brandName, description, name, options, photo, price, rating } = loadedData
 
     const handleSubmit =() =>{
