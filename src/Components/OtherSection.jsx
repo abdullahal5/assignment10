@@ -28,21 +28,25 @@ const OtherSection = () => {
               automotive needs.
             </div>
             <div className="">
-              <img className="w-52 md:w-auto lg:w-auto" src="https://i.ibb.co/vjC6TPd/gear.png" alt="flex-1" />
+              <img
+                className="w-52 md:w-auto lg:w-auto"
+                src="https://i.ibb.co/vjC6TPd/gear.png"
+                alt="flex-1"
+              />
             </div>
           </div>
         </div>
-        <div className="">
-          <h1 className="text-5xl font-bold text-center">
-            Let's make some <span className="text-[#FF444A] ">Deal</span>
+        <div className="bg-rose-200 py-5">
+          <h1 className="text-3xl text-center py-5">
+            Let's make a <span className="text-red-500">HOT</span> deal
           </h1>
-          <p className="text-center space-y-2 mx-10 text-xl text-[#706F6F] my-5">
-            Select two package & get{" "}
-            <span className="text-white px-5 py-2 rounded-2xl bg-[#ff007a]">
-              20% discount
-            </span>
-          </p>
-          <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center gap-10">
+          <div className="flex gap-7 justify-center items-center">
+            <div>
+              <h1 className="text-5xl">
+                Select your car <br /> and get october offer
+              </h1>
+              <p className="text-lg py-3">get 20% discount</p>
+            </div>
             <div>
               <input
                 placeholder="Name"
@@ -60,9 +64,6 @@ const OtherSection = () => {
                 type="text"
               />
               <button className="btn w-full btn-primary mt-5">Submit</button>
-            </div>
-            <div>
-              <img src={"https://i.ibb.co/XYtfvpy/closure.png"} alt="" />
             </div>
           </div>
         </div>

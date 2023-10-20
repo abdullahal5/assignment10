@@ -2,7 +2,7 @@ const Footer = () => {
     return (
       <div>
         <footer className=" gap-5 bg-black p-10">
-          <div className="py-5 items-center w-20 mx-auto">
+          <div className=" items-center w-20 mx-auto">
             <img
               style={{ backgroundColor: "white" }}
               src="https://i.ibb.co/vZ8b1k5/vector-illustration-sports-car-logo-template-cool-luxurious-elegant-vector-illustration-sports-car-l.png"
