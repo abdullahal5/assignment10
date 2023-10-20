@@ -1,10 +1,11 @@
 import {  useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
     const car = useLoaderData()
     console.log(car)
-    const {_id, name, Price, brandName , options, photo, price, rating, description}   = car
+    const {_id, name, brandName , options, photo, price, rating, description}   = car
     const handleManage =(e) =>{
         e.preventDefault()
         const name = e.target.name.value
@@ -17,7 +18,24 @@ const Update = () => {
         const add = {
           name, price, rating, brandName, description, photo, option
         }
-        console.log(add)
+        // console.log(add)
+        fetch(`http://localhost:4000/car/${_id}`,{
+            method: "PUT",
+            headers:{ 'content-type': 'application/json'},
+            body: JSON.stringify(add)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'success!',
+                    text: 'car Updated successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+            }
+        })
         
     }
 
@@ -33,6 +51,7 @@ const Update = () => {
   }
     return (
       <div>
+        <h1 className="text-4xl font-bold text-center"> Update Car</h1>
         <div>
           <form onSubmit={handleManage}>
             <div className="flex">
@@ -153,7 +172,7 @@ const Update = () => {
 
             <div className="mt-10">
               <button className="btn btn-primary w-full" type="submit">
-                Submit
+                Update
               </button>
             </div>
           </form>

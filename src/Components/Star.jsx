@@ -1,17 +1,17 @@
 import {FaStar, FaStarHalfAlt} from 'react-icons/fa';
 import { AiOutlineStar } from "react-icons/ai"
 const Star = ({star}) => {
-    console.log(star)
+    // console.log(star)
     const ratingStar =  Array.from({length: 5}, (elem, index) =>{
         let number = index + 0.5
   return (
     <div key={index}>
       {star >= index + 1 ? (
-        <FaStar style={{color: 'gold'}}></FaStar>
+        <FaStar style={{ color: "gold" }}></FaStar>
       ) : star >= number ? (
-        <FaStarHalfAlt></FaStarHalfAlt>
+        <FaStarHalfAlt style={{ color: "gold" }}></FaStarHalfAlt>
       ) : (
-        <AiOutlineStar></AiOutlineStar>
+        <AiOutlineStar style={{ color: "gold" }}></AiOutlineStar>
       )}
     </div>
   );

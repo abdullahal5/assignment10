@@ -6,24 +6,20 @@ const Details = () => {
     const [car, setCar] = useState([])
     const {id} = useParams()
     // const [api, setApi] = useState({})
-    console.log(car);
+    // console.log(car);
     const loadedData = useLoaderData();
 
-    useEffect(()=>{
-        // const find = loadedData?.map(
-        //   (item) => (item.brandName)
-        // );
-        // console.log(find)
-    },[])
+    
 
     useEffect(()=>{
        fetch('/data.json')
        .then(res => res.json())
        .then(data => {
+        console.log(data)
 
            const findCar = data?.find((item) => parseFloat(item.id) === parseFloat(id));
               console.log(findCar.brandName)
-               const find = loadedData?.filter((item) => item.brandName === findCar.brandName);
+               const find = loadedData?.filter((item) => item.brandName === (findCar.brandName));
                setCar(find);
        })
     },[])
@@ -100,7 +96,9 @@ const Details = () => {
                     <div className="block text-lg">Price: {i.price}</div>
                     <Star star={i.rating}></Star>
                     <div className="flex justify-evenly">
-                      <button className="btn btn-primary">Details</button>
+                      <Link to={`/carDetails/${i._id}`}>
+                        <button className="btn btn-primary">Details</button>
+                      </Link>
                       <Link to={`/update/${i._id}`}>
                         <button className="btn btn-primary">Update</button>
                       </Link>

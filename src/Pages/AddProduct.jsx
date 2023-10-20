@@ -61,6 +61,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                required
                   name="name"
                   type="text"
                   placeholder="Name"
@@ -74,6 +75,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                required
                   name="brandName"
                   type="text"
                   placeholder="Brand Name"
@@ -88,6 +90,7 @@ const AddProduct = () => {
                 <span className="label-text">Types</span>
               </label>
               <input
+              required
                 name="options"
                 type="text"
                 placeholder="Click me for options"
@@ -119,6 +122,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                 required
                   name="price"
                   type="text"
                   placeholder="price"
@@ -132,6 +136,7 @@ const AddProduct = () => {
               </label>
               <label className="input-group">
                 <input
+                required
                   name="description"
                   type="text"
                   placeholder="short Description"
@@ -144,6 +149,7 @@ const AddProduct = () => {
             <label className="label">Rating</label>
             <label className="input-group">
               <input
+              required
                 name="rating"
                 type="text"
                 placeholder="Rating"
@@ -155,6 +161,7 @@ const AddProduct = () => {
             <label className="label">Photo URL</label>
             <label className="input-group">
               <input
+              required
                 name="photo"
                 type="text"
                 placeholder="Photo URL"

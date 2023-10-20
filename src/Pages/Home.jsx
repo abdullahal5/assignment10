@@ -6,6 +6,7 @@ import OtherSection from "../Components/OtherSection";
 const Home = () => {
     return (
         <div className="font-tilt">
+
             <Banner></Banner>
             <Brand></Brand>
             <OtherSection></OtherSection>
