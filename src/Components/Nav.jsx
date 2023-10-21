@@ -76,7 +76,7 @@ const Nav = () => {
               </ul>
             </div>
             <div className="ml-5 flex lg:flex-row md:flex-row flex-col justify-start items-center w-20">
-              <img style={{backgroundColor: "white"}}
+              <img 
                 src="https://i.ibb.co/vZ8b1k5/vector-illustration-sports-car-logo-template-cool-luxurious-elegant-vector-illustration-sports-car-l.png"
                 alt=""
               />
