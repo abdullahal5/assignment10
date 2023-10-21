@@ -5,12 +5,12 @@ import OtherSection from "../Components/OtherSection";
 
 const Home = () => {
     return (
-        <div className="font-tilt ">
-            <Banner></Banner>
-            <Brand></Brand>
-            <OtherSection></OtherSection>
-            <Footer></Footer>
-        </div>
+      <div className="font-tilt dark:bg-black dark:text-white">
+        <Banner></Banner>
+        <Brand></Brand>
+        <OtherSection></OtherSection>
+        <Footer></Footer>
+      </div>
     );
 };
 

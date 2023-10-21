@@ -5,7 +5,7 @@ import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser, setLoading} = useContext(AuthContext)
 
 
     const [register, setRegister] = useState('')
@@ -41,11 +41,12 @@ const Register = () => {
 
           e.target.reset()
           updateProfile(result.user, {
+            
             displayName: name,
             photoURL: photo
           })
           .then( () =>{
-            console.log('updated')
+           console.log("updated");
           })
           .catch(errrr =>{
             console.log(errrr)
@@ -63,9 +64,9 @@ const Register = () => {
     }
     return (
       <div>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 dark:bg-black">
           <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 dark:bg-black dark:text-white">
               <h1 className="text-4xl text-center font-bold">Register</h1>
               <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
@@ -76,7 +77,7 @@ const Register = () => {
                     name="name"
                     type="text"
                     placeholder="Name"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gray-300"
                     required
                   />
                 </div>
@@ -88,7 +89,7 @@ const Register = () => {
                     name="email"
                     type="email"
                     placeholder="Email"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gray-300"
                     required
                   />
                 </div>
@@ -100,7 +101,7 @@ const Register = () => {
                     name="password"
                     type="password"
                     placeholder="password"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gray-300"
                     required
                   />
                 </div>
@@ -112,17 +113,20 @@ const Register = () => {
                     name="photo"
                     type="text"
                     placeholder="photo URL"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gray-300"
                     required
                   />
                 </div>
                 <p>
-                  Already have an account? <Link className="text-blue-700 underline" to="/login">please Login</Link>
+                  Already have an account?{" "}
+                  <Link className="text-blue-700 underline" to="/login">
+                    please Login
+                  </Link>
                 </p>
                 {register && <p className="text-red-600">{register}</p>}
-                {
-                    successRegister && <p className="text-green-600">{successRegister}</p>
-                }
+                {successRegister && (
+                  <p className="text-green-600">{successRegister}</p>
+                )}
                 <div className="form-control mt-6">
                   <button type="submit" className="btn btn-primary">
                     Register

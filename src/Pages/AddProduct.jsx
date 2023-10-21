@@ -1,81 +1,93 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 const AddProduct = () => {
-    const handleManage =(e) =>{
-        e.preventDefault()
-        const name = e.target.name.value
-        const price = e.target.price.value
-        const rating = e.target.rating.value
-        const brandName = e.target.brandName.value
-        const description = e.target.description.value
-        const photo = e.target.photo.value
-        const options = e.target.options.value
-        const add = {
-          name, price, rating, brandName, description, photo, options
-        }
-        console.log(add)
-        fetch("http://localhost:4000/car", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(add),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data)
-            if(data.insertedId){
-              Swal.fire ({
-                title: 'success',
-                text: 'User added successfully',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-              })
-            }
+  const handleManage = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const price = e.target.price.value;
+    const rating = e.target.rating.value;
+    const brandName = e.target.brandName.value;
+    const description = e.target.description.value;
+    const photo = e.target.photo.value;
+    const options = e.target.options.value;
+    const add = {
+      name,
+      price,
+      rating,
+      brandName,
+      description,
+      photo,
+      options,
+    };
+    console.log(add);
+    fetch("https://assignment10-server-peach.vercel.app/car", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(add),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success",
+            text: "User added successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
           });
-    }
+        }
+      });
+  };
 
   const [showOptions, setShowOptions] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
-  const options = ["couple", "sedan", "SUV", "Station-wagon", "Sports car", "crossover"];
+  const options = [
+    "couple",
+    "sedan",
+    "SUV",
+    "Station-wagon",
+    "Sports car",
+    "crossover",
+  ];
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
-
   };
 
   return (
     <div>
-      <div className="px-5">
+      <div className="px-5 dark:bg-black ">
         <form onSubmit={handleManage}>
-          <div className="flex">
+          <div className="flex lg:flex-row md:flex-row flex-col ">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text dark:text-white">Name</span>
               </label>
               <label className="input-group">
                 <input
-                required
+                  required
                   name="name"
                   type="text"
                   placeholder="Name"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-300"
                 />
               </label>
             </div>
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Brand Name</span>
+                <span className="label-text dark:text-white">Brand Name</span>
               </label>
               <label className="input-group">
                 <input
-                required
+                  required
                   name="brandName"
                   type="text"
                   placeholder="Brand Name"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-300"
                 />
               </label>
             </div>
@@ -83,16 +95,16 @@ const AddProduct = () => {
           <div className="pt-10">
             <div className="relative">
               <label className="label">
-                <span className="label-text">Types</span>
+                <span className="label-text dark:text-white">Types</span>
               </label>
               <input
-              required
+                required
                 name="options"
                 type="text"
                 placeholder="Click me for options"
                 value={selectedOption}
                 onClick={() => setShowOptions(!showOptions)}
-                className="w-64 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500"
+                className="w-64 px-4 py-2 border bg-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500"
               />
 
               {showOptions && (
@@ -111,57 +123,59 @@ const AddProduct = () => {
             </div>
           </div>
 
-          <div className="flex">
+          <div className="flex g:flex-row md:flex-row flex-col">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Price</span>
+                <span className="label-text dark:text-white">Price</span>
               </label>
               <label className="input-group">
                 <input
-                 required
+                  required
                   name="price"
                   type="text"
                   placeholder="price"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-300"
                 />
               </label>
             </div>
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Short description</span>
+                <span className="label-text dark:text-white">
+                  Short description
+                </span>
               </label>
               <label className="input-group">
                 <input
-                required
+                  required
                   name="description"
                   type="text"
                   placeholder="short Description"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-300"
                 />
               </label>
             </div>
           </div>
           <div className="form-control ">
-            <label className="label">Rating</label>
+            <label className="label dark:text-white">Rating</label>
             <label className="input-group">
               <input
-              required
+                required
                 name="rating"
                 type="text"
                 placeholder="Rating"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-300"
               />
             </label>
           </div>
           <div className="form-control ">
-            <label className="label">Photo URL</label>
+            <label className="label dark:text-white">Photo URL</label>
             <label className="input-group">
               <input
-              required
+                required
                 name="photo"
                 type="text"
                 placeholder="Photo URL"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-300"
               />
             </label>
           </div>

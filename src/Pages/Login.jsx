@@ -44,11 +44,11 @@ const Login = () => {
     }
     return (
       <div>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 dark:bg-black">
           <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <h1 className="text-4xl font-bold text-center">Login</h1>
-              <form onSubmit={handleLogin} className="card-body">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 dark:bg-black dark:text-white">
+              <h1 className="text-4xl font-bold text-center">Login</h1>
+              <form onSubmit={handleLogin} className="card-body ">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -57,7 +57,7 @@ const Login = () => {
                     name="email"
                     type="email"
                     placeholder="email"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gray-300"
                     required
                   />
                 </div>
@@ -69,24 +69,31 @@ const Login = () => {
                     name="password"
                     type="password"
                     placeholder="password"
-                    className="input input-bordered"
+                    className="input input-bordered bg-gray-300"
                     required
                   />
                 </div>
                 <p>
-                  Don't have an account? <Link className="text-blue-700 underline" to="/register">please Register</Link>
+                  Don't have an account?{" "}
+                  <Link className="text-blue-700 underline" to="/register">
+                    please Register
+                  </Link>
                 </p>
-                {
-                    errLogin && <p className="text-red-600">{errLogin}</p>
-                }
-                {
-                    success && <p className="text-green-600">{success}</p>
-                }
+                {errLogin && <p className="text-red-600">{errLogin}</p>}
+                {success && <p className="text-green-600">{success}</p>}
                 <div className="form-control mt-6">
-                  <button type="submit" className="btn btn-primary">Login</button>
+                  <button type="submit" className="btn btn-primary">
+                    Login
+                  </button>
                 </div>
                 <div className="form-control mt-6">
-                  <button onClick={handleGoogle} type="submit" className="btn btn-primary">Google Login</button>
+                  <button
+                    onClick={handleGoogle}
+                    type="submit"
+                    className="btn btn-primary"
+                  >
+                    Google Login
+                  </button>
                 </div>
               </form>
             </div>

@@ -1,8 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const Nav = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () =>{
     logOut()
@@ -39,8 +48,8 @@ const Nav = () => {
       </>
     );
     return (
-      <div className="font-tilt">
-        <div className="navbar  flex justify-between bg-gray-200">
+      <div className="font-tilt ">
+        <div className="navbar  flex justify-between bg-gray-200 dark:bg-black dark:text-white">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn  lg:hidden">
@@ -66,12 +75,12 @@ const Nav = () => {
                 {links}
               </ul>
             </div>
-            <div className="ml-5 flex items-center w-20">
+            <div className="ml-5 flex justify-start items-center w-20">
               <img
                 src="https://i.ibb.co/vZ8b1k5/vector-illustration-sports-car-logo-template-cool-luxurious-elegant-vector-illustration-sports-car-l.png"
                 alt=""
               />
-              <a className="btn btn-ghost normal-case text-xl">Automotive</a>
+              <a className="btn justify-start btn-ghost normal-case text-xl">Automotive</a>
             </div>
           </div>
           {user ? (
@@ -82,6 +91,20 @@ const Nav = () => {
           ) : (
             ""
           )}
+          <div>
+            <button
+              onClick={() => {
+                setDarkMode(!darkMode);
+              }}
+              className="mx-auto btn"
+            >
+              {!darkMode ? (
+                <MdDarkMode></MdDarkMode>
+              ) : (
+                <MdLightMode></MdLightMode>
+              )}
+            </button>
+          </div>
           <div className="navbar-center hidden lg:flex ">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>

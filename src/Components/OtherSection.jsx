@@ -12,9 +12,9 @@ const OtherSection = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="flex lg:flex-row md:flex-row flex-col justify-center  h-[150vh] md:lg:h-[100vh] lg:h-[100vh] w-[100%]"
+          className="flex lg:flex-row md:flex-row flex-col justify-center  h-[150vh] md:lg:h-[100vh] lg:h-[100vh] w-[100%] "
         >
-          <div className="flex lg:flex-row md:flex-row flex-col justify-center px-10 bg-[#0b0b0b80] h-[100%] w-full items-center">
+          <div className="flex lg:flex-row md:flex-row flex-col justify-center px-10 dark:bg-black bg-[#0b0b0b80] h-[100%] w-full items-center">
             <div className=" text-lg text-white flex-1">
               we're passionate about all things cars. Our journey began with a
               shared love for automobiles and a desire to create a space where
@@ -36,16 +36,16 @@ const OtherSection = () => {
             </div>
           </div>
         </div>
-        <div className="bg-rose-200 py-5">
+        <div className="bg-rose-200 dark:bg-black  py-5">
           <h1 className="text-3xl text-center py-5">
             Let's make a <span className="text-red-500">HOT</span> deal
           </h1>
-          <div className="flex gap-7 justify-center items-center">
+          <div className="flex lg:flex-row flex-col md:flex-row gap-7 justify-center items-center">
             <div>
-              <h1 className="text-5xl">
+              <h1 className="text-4xl lg:text-5xl">
                 Select your car <br /> and get october offer
               </h1>
-              <p className="text-lg py-3">get 20% discount</p>
+              <p className="text-lg py-3  text-center">get 20% discount</p>
             </div>
             <div>
               <input

@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Star from './Star';
 
 const Details = () => {
     const [car, setCar] = useState([])
     const {id} = useParams()
-    // const [api, setApi] = useState({})
-    // console.log(car);
     const loadedData = useLoaderData();
 
     
@@ -17,10 +15,16 @@ const Details = () => {
        .then(data => {
         console.log(data)
 
-           const findCar = data?.find((item) => parseFloat(item.id) === parseFloat(id));
-              console.log(findCar.brandName)
-               const find = loadedData?.filter((item) => item.brandName === (findCar.brandName));
-               setCar(find);
+             
+
+        const findCar = data?.find(
+          (item) => parseFloat(item.id) === parseFloat(id)
+        );
+        console.log(findCar.brandName);
+        const find = loadedData?.filter(
+          (item) => item.brandName === findCar.brandName
+        );
+        setCar(find);
        })
     },[])
 
@@ -32,8 +36,11 @@ const Details = () => {
     return (
       <div>
         <div>
-          <div className="carousel w-full h-[90vh]">
-            <div id="slide1" className="carousel-item relative w-full">
+          <div className="carousel w-full h-[90vh] ">
+            <div
+              id="slide1"
+              className="carousel-item relative w-full "
+            >
               <img
                 src="https://i.ibb.co/kBkXy4s/white-offroader-jeep-parking-114579-4007.png"
                 className="w-full"
@@ -76,13 +83,15 @@ const Details = () => {
               </div>
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-center">Latest car</h1>
+          <h1 className="text-4xl dark:bg-black dark:text-white font-bold text-center">
+            Latest car
+          </h1>
         </div>
-        <div className="flex justify-center gap-10">
+        <div className="flex justify-center gap-10 dark:bg-black dark:text-white">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {car.map((i) => (
               <div key={i.id}>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 dark:bg-black shadow-xl">
                   <figure>
                     <img src={i.photo} alt="Shoes" />
                   </figure>

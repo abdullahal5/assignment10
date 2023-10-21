@@ -1,20 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './Pages/Home.jsx';
-import AddProduct from './Pages/AddProduct.jsx';
-import Login from './Pages/Login.jsx';
-import Brand from './Components/Brand.jsx';
-import Details from './Components/Details.jsx';
-import Update from './Components/Update.jsx';
-import MyCart from './Components/MyCart.jsx';
-import Register from './Components/Register.jsx';
-import AuthProvider from './Components/AuthProvider.jsx';
-import PrivateRoute from './Components/PrivateRoute.jsx';
-import ErrorPage from './Components/ErrorPage.jsx';
-import CarDetails from './Components/carDetails.jsx';
+import Home from "./Pages/Home.jsx";
+import AddProduct from "./Pages/AddProduct.jsx";
+import Login from "./Pages/Login.jsx";
+import Brand from "./Components/Brand.jsx";
+import Details from "./Components/Details.jsx";
+import Update from "./Components/Update.jsx";
+import MyCart from "./Components/MyCart.jsx";
+import Register from "./Components/Register.jsx";
+import AuthProvider from "./Components/AuthProvider.jsx";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
+import ErrorPage from "./Components/ErrorPage.jsx";
+import CarDetails from "./Components/carDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +41,8 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:4000/info"),
+        loader: () =>
+          fetch("https://assignment10-server-peach.vercel.app/info"),
       },
       {
         path: "/login",
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Details></Details>,
-        loader: () => fetch("http://localhost:4000/car"),
+        loader: () => fetch("https://assignment10-server-peach.vercel.app/car"),
       },
       {
         path: "/update/:id",
@@ -67,16 +68,22 @@ const router = createBrowserRouter([
             <Update></Update>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:4000/car/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment10-server-peach.vercel.app/car/${params.id}`
+          ),
       },
       {
         path: "/carDetails/:id",
         element: (
           <PrivateRoute>
-           <CarDetails></CarDetails>
+            <CarDetails></CarDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:4000/car/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment10-server-peach.vercel.app/car/${params.id}`
+          ),
       },
     ],
   },
