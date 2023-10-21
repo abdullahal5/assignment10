@@ -70,13 +70,13 @@ const Nav = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow dark:bg-black dark:text-white  bg-base-100 rounded-box w-52"
               >
                 {links}
               </ul>
             </div>
-            <div className="ml-5 flex justify-start items-center w-20">
-              <img
+            <div className="ml-5 flex lg:flex-row md:flex-row flex-col justify-start items-center w-20">
+              <img style={{backgroundColor: "white"}}
                 src="https://i.ibb.co/vZ8b1k5/vector-illustration-sports-car-logo-template-cool-luxurious-elegant-vector-illustration-sports-car-l.png"
                 alt=""
               />
