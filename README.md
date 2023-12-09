@@ -1,4 +1,4 @@
-live site link: waggish-oven.surge.sh
+live site link: [waggish-oven.surge.sh](https://waggish-oven.surge.sh/)
 
 •Add product section
 -->If you try to enter add product given on navbar for the first time, you will be able to see that this will take you login page , first of all you have to login then you can add products. after adding a product, this will be add on a brand card depending on your brand name . For an example, if you write bmw it will add bmw brand card.
